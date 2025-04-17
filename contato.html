@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Seu Nome</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre Mim</a></li>
+                <li><a href="experiencia.html">Experiência</a></li>
+                <li><a href="habilidades.html">Habilidades</a></li>
+                <li><a href="ferramentas.html">Ferramentas</a></li>
+                <li><a href="contato.html" class="active">Contato</a></li> </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>Entre em Contato</h1>
+    </header>
+
+    <div class="container">
+        <main>
+             <p style="text-align: center; margin-bottom: 30px;">Tem alguma dúvida, sugestão, proposta de projeto ou apenas quer trocar uma ideia sobre engenharia e tecnologia? Utilize o formulário abaixo ou os outros canais de contato.</p>
+
+            <form id="contact-form" action="#" method="post"> <div>
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" required placeholder="Seu nome completo">
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="seuemail@provedor.com">
+                </div>
+                 <div>
+                    <label for="subject">Assunto:</label>
+                    <input type="text" id="subject" name="subject" placeholder="Ex: Proposta de Projeto, Dúvida sobre Ferramenta X">
+                 </div>
+                <div>
+                    <label for="message">Mensagem:</label>
+                    <textarea id="message" name="message" rows="6" required placeholder="Digite sua mensagem aqui..."></textarea>
+                </div>
+                <button type="submit">Enviar Mensagem (Simulado)</button>
+            </form>
+
+            <div class="contact-info">
+                 <h2 style="text-align: center; margin-bottom: 20px;">Outras Formas de Contato</h2>
+                 <p style="text-align: center;">
+                    <strong>Email:</strong> <a href="mailto:seuemail@provedor.com">seuemail@provedor.com</a> |
+                    <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/seu-perfil" target="_blank">Seu Perfil no LinkedIn</a> |
+                    (Opcional) <strong>Telefone:</strong> +55 (XX) XXXXX-XXXX
+                 </p>
+                 <p style="text-align: center;"><strong>Localização Principal:</strong> Sua Cidade, Estado</p>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Seu Nome Completo - Engenheiro Civil. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

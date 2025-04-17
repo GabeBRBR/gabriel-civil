@@ -1,0 +1,364 @@
+/* --- Estilos CSS Modernos (Chique, Tech, Clean) --- */
+
+/* 1. Importar Fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@400;700&display=swap');
+
+/* 2. Variáveis CSS (Facilita mudanças futuras) */
+:root {
+    --primary-font: 'Roboto', sans-serif;
+    --heading-font: 'Poppins', sans-serif;
+    --background-color: #f8f9fa; /* Off-white / Cinza muito claro */
+    --card-background: #ffffff; /* Branco puro para cards */
+    --text-color: #343a40; /* Cinza escuro para texto */
+    --heading-color: #212529; /* Quase preto para títulos */
+    --primary-color: #007bff; /* Azul vibrante primário */
+    --primary-hover-color: #0056b3; /* Azul mais escuro para hover */
+    --secondary-color: #6c757d; /* Cinza secundário */
+    --border-color: #e9ecef; /* Cinza bem claro para bordas */
+    --nav-background: #212529; /* Fundo escuro para nav/footer */
+    --nav-text-color: #f8f9fa; /* Texto claro para nav/footer */
+    --nav-hover-color: #00aaff; /* Azul mais claro/vibrante para hover na nav */
+    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07); /* Sombra sutil */
+    --box-shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.1);
+    --border-radius: 6px; /* Bordas arredondadas */
+    --transition-speed: 0.3s; /* Velocidade padrão das transições */
+}
+
+/* 3. Reset Básico e Estilos Globais */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth; /* Rolagem suave para links internos (se houver) */
+}
+
+body {
+    font-family: var(--primary-font);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.7; /* Espaçamento entre linhas maior */
+    font-size: 16px; /* Tamanho base */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden; /* Evita scroll horizontal indesejado */
+}
+
+.container {
+    width: 85%; /* Container um pouco mais largo */
+    max-width: 1200px; /* Limite máximo */
+    margin: 30px auto; /* Mais margem vertical */
+    padding: 0 15px;
+    flex-grow: 1;
+}
+
+/* 4. Tipografia */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    color: var(--heading-color);
+    margin-bottom: 1.5rem; /* Mais espaço abaixo dos títulos */
+    font-weight: 600; /* Peso da fonte para títulos */
+}
+
+h1 { font-size: 2.8em; line-height: 1.2; }
+h2 { font-size: 2.2em; line-height: 1.3; }
+h3 { font-size: 1.6em; line-height: 1.4; color: var(--primary-color); } /* Títulos h3 com cor primária */
+h4 { font-size: 1.2em; font-weight: 700; }
+
+p {
+    margin-bottom: 1.2rem; /* Espaço abaixo dos parágrafos */
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+}
+
+a:hover {
+    color: var(--primary-hover-color);
+    text-decoration: underline; /* Sublinhado no hover */
+}
+
+/* 5. Navegação */
+nav {
+    background: var(--nav-background);
+    color: var(--nav-text-color);
+    padding: 15px 0; /* Mais alta */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra mais pronunciada */
+}
+
+nav .nav-container {
+    width: 85%;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 20px; /* Mais espaço entre itens */
+}
+
+nav a {
+    color: var(--nav-text-color);
+    font-size: 1.1em; /* Ligeiramente maior */
+    font-weight: 400;
+    padding: 8px 0; /* Padding para área de clique maior */
+    position: relative; /* Para o pseudo-elemento ::after */
+    text-decoration: none; /* Remove sublinhado padrão */
+    transition: color var(--transition-speed) ease;
+}
+nav a:hover {
+    color: var(--nav-hover-color);
+    text-decoration: none; /* Garante que não haja sublinhado no hover */
+}
+
+/* Animação de sublinhado no hover/active da navegação */
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px; /* Posição abaixo do texto */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--nav-hover-color);
+    transition: width var(--transition-speed) ease-out;
+}
+nav a:hover::after,
+nav a.active::after {
+    width: 70%; /* Largura do sublinhado ao passar o mouse ou ativo */
+}
+
+/* Estilo específico para link ativo */
+nav a.active {
+    color: var(--nav-hover-color); /* Cor mais vibrante para ativo */
+    font-weight: 600;
+}
+
+/* 6. Cabeçalho da Página (Opcional) */
+header.page-header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover-color) 100%); /* Gradiente */
+    color: var(--nav-text-color); /* Texto claro */
+    padding: 40px 0; /* Mais padding */
+    text-align: center;
+    margin-bottom: 40px; /* Espaço abaixo */
+    border-bottom: 4px solid var(--primary-hover-color);
+}
+
+header.page-header h1 {
+    margin: 0;
+    color: var(--nav-text-color);
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+/* 7. Conteúdo Principal e Cards */
+main {
+    background-color: var(--card-background);
+    padding: 40px 30px; /* Padding interno */
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    /* Animação de Fade-in para o conteúdo principal */
+    animation: fadeIn 0.8s ease-out forwards;
+    opacity: 0; /* Começa invisível */
+}
+
+/* Estilo base para cards (Jobs, Skills, Tools) */
+.job, .category, .skills-section ul li, .tool-detail {
+    background-color: var(--card-background); /* Fundo branco */
+    border: 1px solid var(--border-color); /* Borda sutil */
+    border-radius: var(--border-radius);
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Sombra mais leve para cards internos */
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+/* Animação de Hover para Cards */
+.job:hover, .category:hover, .skills-section ul li:hover, .tool-item a:hover {
+    transform: translateY(-5px); /* Eleva um pouco */
+    box-shadow: var(--box-shadow-hover); /* Sombra mais pronunciada */
+}
+
+/* Seção Experiência */
+.job { border-left: 5px solid var(--primary-color); } /* Detalhe de borda colorida */
+.job h4 { margin-bottom: 8px; }
+.job span { font-style: normal; color: var(--secondary-color); font-size: 0.9em; margin-bottom: 15px; }
+.job ul { list-style-position: inside; padding-left: 0; }
+
+/* Seção Habilidades (Tags) */
+.skills-section ul { list-style: none; padding: 0; margin-bottom: 20px; }
+.skills-section li {
+    background-color: var(--background-color); /* Fundo da tag igual ao body */
+    padding: 10px 15px;
+    margin: 0 8px 10px 0; /* Espaçamento */
+    display: inline-block;
+    font-size: 0.95em;
+    font-weight: 400;
+    border: 1px solid var(--border-color);
+    cursor: default; /* Cursor padrão, não é link */
+}
+
+/* Seção Ferramentas */
+.category { border-top: 3px solid var(--primary-color); } /* Destaque no topo */
+.category h3 { border-bottom: none; padding-bottom: 0; margin-bottom: 25px; } /* Remove sublinhado de h3 */
+.tool-item {
+    border: none; /* Remove borda interna do item */
+    padding: 20px 0; /* Ajusta padding */
+    border-bottom: 1px dashed var(--border-color); /* Separador mais sutil */
+    transition: background-color var(--transition-speed) ease; /* Transição no fundo */
+}
+.tool-item:hover {
+    background-color: #f8f9fa; /* Fundo sutil no hover do item */
+}
+.tool-item a { font-size: 1.2em; text-decoration: none; } /* Remove sublinhado padrão do link */
+.tool-item a:hover { text-decoration: underline; } /* Adiciona sublinhado apenas no hover */
+.tool-item p { font-size: 1em; color: var(--secondary-color); }
+
+/* Página Detalhe da Ferramenta */
+.tool-detail { box-shadow: var(--box-shadow); }
+.tool-detail .video-placeholder {
+    width: 100%;
+    max-width: 720px; /* Maior */
+    height: 405px; /* Proporção 16:9 */
+    background-color: #e9ecef;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+.tool-detail .download-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #28a745, #218838); /* Gradiente verde */
+    color: #fff;
+    padding: 15px 30px; /* Botão maior */
+    border: none;
+    border-radius: 50px; /* Botão arredondado (pílula) */
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-top: 25px;
+    box-shadow: 0 4px 10px rgba(40, 167, 69, 0.4);
+    transition: all var(--transition-speed) ease;
+}
+.tool-detail .download-button:hover {
+    background: linear-gradient(135deg, #218838, #1e7e34);
+    box-shadow: 0 6px 15px rgba(40, 167, 69, 0.6);
+    transform: translateY(-3px); /* Leve elevação no hover */
+}
+.tool-detail small {
+    display: block; /* Garante que o disclaimer fique em linha própria */
+    margin-top: 20px;
+    color: var(--secondary-color);
+    font-style: italic;
+}
+
+/* 8. Formulário de Contato */
+#contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600; /* Label em negrito */
+    color: var(--heading-color);
+}
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form textarea {
+    width: 100%;
+    padding: 15px; /* Mais padding */
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: #f8f9fa; /* Fundo levemente diferente */
+    font-family: var(--primary-font);
+    font-size: 1em;
+    transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+#contact-form input:focus,
+#contact-form textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Glow ao focar */
+    outline: none; /* Remove outline padrão */
+}
+
+#contact-form button {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-hover-color)); /* Gradiente */
+    color: #fff;
+    padding: 15px 35px; /* Botão maior */
+    border: none;
+    border-radius: 50px; /* Botão arredondado */
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+    transition: all var(--transition-speed) ease;
+}
+#contact-form button:hover {
+    background: linear-gradient(135deg, var(--primary-hover-color), var(--primary-color));
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.5);
+    transform: translateY(-3px);
+}
+.contact-info { margin-top: 40px; padding-top: 30px; border-top: 1px solid var(--border-color); }
+.contact-info p { margin-bottom: 15px; font-size: 1.1em; }
+.contact-info a { font-weight: 600; }
+
+/* 9. Rodapé */
+footer {
+    background: var(--nav-background); /* Mesmo fundo da nav */
+    color: var(--secondary-color); /* Texto mais sutil no footer */
+    text-align: center;
+    padding: 30px 0; /* Mais padding */
+    margin-top: auto;
+    width: 100%;
+    font-size: 0.9em;
+}
+
+/* 10. Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px); /* Começa um pouco abaixo */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Adiciona um delay sutil para elementos repetitivos aparecerem em sequência (opcional) */
+.job, .category, .tool-item {
+   animation: fadeIn 0.6s ease-out forwards;
+   opacity: 0; /* Garante que comecem invisíveis */
+}
+
+/* Aplica delay progressivo (exemplo para .job, pode adaptar para outros) */
+.job:nth-child(1) { animation-delay: 0.1s; }
+.job:nth-child(2) { animation-delay: 0.2s; }
+.job:nth-child(3) { animation-delay: 0.3s; }
+/* Adicione mais :nth-child se tiver mais itens */
+
+.category:nth-child(odd) { animation-delay: 0.1s; } /* Ímpares */
+.category:nth-child(even) { animation-delay: 0.2s; } /* Pares */
+
+
+/* 11. Responsividade Básica (Ajustes para telas menores) */
+@media (max-width: 768px) {
+    h1 { font-size: 2.2em; }
+    h2 { font-size: 1.8em; }
+    .container { width: 95%; }
+    nav ul li { margin: 0 10px; } /* Menos espaço na nav */
+    nav a { font-size: 1em; }
+    #contact-form button, .tool-detail .download-button { padding: 12px 25px; font-size: 1em;} /* Botões menores */
+}
